@@ -94,7 +94,7 @@ Kubernetes is called "K8s" because there are eight letters between the "K" and t
 
 ## Kubernetes Architecture and Working
 Kubernetes follows a client-server architecture. This setup includes a minimum of one master (control plane) node alongside several worker nodes, which serve as hosts for pods that contain the containers. The master node orchestrates the worker nodes, where the actual applications reside. </br>
-![Kubernetes (K8s)](Kubernetes_architecture.jpg)
+![Kubernetes_architecture](https://github.com/Gautamr16/Kubernetes-K8s-/assets/173404083/a4ae7fd3-b23e-4d97-b48c-7962cf131159)
 ## The Control Plane
 ### Key Components of the Master Node:
 **API Server:** 
