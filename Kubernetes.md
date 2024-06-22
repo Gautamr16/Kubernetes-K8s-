@@ -1,6 +1,6 @@
 # Kubernetes(K8s) Documentation
-In this documentation we covers basics of Kubernetes **(K8s)** like key features, core concepts, Architecture, Installation and some basic  commands and practices.
-![Kubernetes (K8s)](k.webp)
+In this documentation, we cover the basics of Kubernetes **(K8s)** like key features, core concepts, Architecture, Installation and some basic  commands and practices.
+![k](https://github.com/Gautamr16/Kubernetes-K8s-/assets/173404083/32d00da8-027b-443f-b71f-ca938103b2f5)
 ## Table of Contents
 
 1. [Introduction](#introduction)
