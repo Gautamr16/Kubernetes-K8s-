@@ -26,8 +26,6 @@ Kubernetes (K8s) is an open-source tool that helps manage containerized applicat
 
 Kubernetes is called "K8s" because there are eight letters between the "K" and the "s" in the word "Kubernetes." It’s a way to shorten the word and make it easier to write.
 
-
-
 ### *History and Development*
 #### Origins:
 - Kubernetes was created by Google. It uses Google’s experience in running large-scale systems.
@@ -292,7 +290,8 @@ commit: 5883c09216182566a63dff4c326a6fc9ed2982ff
 minikube start
 ```
 - Output:
-  ```gautamr@gautam:~$ minikube start
+  ```
+  gautamr@gautam:~$ minikube start
 😄  minikube v1.33.1 on Ubuntu 24.04
 ✨  Using the docker driver based on existing profile
 👍  Starting "minikube" primary control-plane node in "minikube" cluster
