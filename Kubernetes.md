@@ -342,7 +342,7 @@ gautamr@gautam:~$ kubectl get nodes
 NAME       STATUS   ROLES           AGE     VERSION
 minikube   Ready    control-plane   7m38s   v1.30.0
 ```
-### Step 7: Deploy an ApplicationStep 4: Deploy an Application
+### Step 7: Deploy an Application:
 - Create a deployment:
 ```
 kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
