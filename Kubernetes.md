@@ -1,6 +1,6 @@
 # Kubernetes(K8s) Documentation
-In this documentation, we cover the basics of Kubernetes **(K8s)** like key features, core concepts, Architecture, Installation and some basic  commands and practices.
-![k](https://github.com/Gautamr16/Kubernetes-K8s-/assets/173404083/32d00da8-027b-443f-b71f-ca938103b2f5)
+In this documentation we covers basics of Kubernetes **(K8s)** like key features, core concepts, Architecture, Installation and some basic  commands.
+![Kubernetes (K8s)](k.webp)
 ## Table of Contents
 
 1. [Introduction](#introduction)
@@ -25,6 +25,8 @@ Kubernetes (K8s) is an open-source tool that helps manage containerized applicat
 ### Why is Kubernetes Called K8s?
 
 Kubernetes is called "K8s" because there are eight letters between the "K" and the "s" in the word "Kubernetes." It’s a way to shorten the word and make it easier to write.
+
+
 
 ### *History and Development*
 #### Origins:
@@ -92,7 +94,7 @@ Kubernetes is called "K8s" because there are eight letters between the "K" and t
 
 ## Kubernetes Architecture and Working
 Kubernetes follows a client-server architecture. This setup includes a minimum of one master (control plane) node alongside several worker nodes, which serve as hosts for pods that contain the containers. The master node orchestrates the worker nodes, where the actual applications reside. </br>
-![Kubernetes_architecture](https://github.com/Gautamr16/Kubernetes-K8s-/assets/173404083/a4ae7fd3-b23e-4d97-b48c-7962cf131159)
+![Kubernetes (K8s)](Kubernetes_architecture.jpg)
 ## The Control Plane
 ### Key Components of the Master Node:
 **API Server:** 
@@ -291,7 +293,7 @@ minikube start
 ```
 - Output:
 ```
-  gautamr@gautam:~$ minikube start
+gautamr@gautam:~$ minikube start
 😄  minikube v1.33.1 on Ubuntu 24.04
 ✨  Using the docker driver based on existing profile
 👍  Starting "minikube" primary control-plane node in "minikube" cluster
@@ -317,7 +319,72 @@ kubelet: Running
 apiserver: Running
 kubeconfig: Configured
 ```
+### Step 6: Use kubectl to Interact with Minikube
+- Get cluster information:
+```
+kubectl cluster-info
+```
+- Output:
+```
+gautamr@gautam:~$ kubectl cluster-info
+Kubernetes control plane is running at https://192.168.49.2:8443
+CoreDNS is running at https://192.168.49.2:8443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+```
+- Get nodes:
+```
+kubectl get nodes
+```
+- Output:
+```
+gautamr@gautam:~$ kubectl get nodes
+NAME       STATUS   ROLES           AGE     VERSION
+minikube   Ready    control-plane   7m38s   v1.30.0
+```
+### Step 7: Deploy an ApplicationStep 4: Deploy an Application
+- Create a deployment:
+```
+kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
+```
+- Output:
+```
+gautamr@gautam:~$ kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
+deployment.apps/hello-node created
+```
+- Expose the deployment:
+``` 
+kubectl expose deployment hello-node --type=LoadBalancer --port=8080
+```
+- Output:
+```
+gautamr@gautam:~$ kubectl expose deployment hello-node --type=LoadBalancer --port=8080
+service/hello-node exposed
+```
+- Get the URL to access the application:
+```
+minikube service hello-node --url
+```
+### Step 8: Cleanup
+- Delete the deployment:
+```
+kubectl delete deployment hello-node
+```
+- Stop Minikube:
+```
+minikube stop
+```
+- Output:
+```
+gautamr@gautam:~$ minikube stop
+✋  Stopping node "minikube"  ...
+🛑  Powering off "minikube" via SSH ...
+🛑  1 node stopped.
+```
+- Delete Minikube cluster:
+```
+minikube delete
+```
 
 ### Basic Commands
 
@@ -325,7 +392,7 @@ kubeconfig: Configured
 ```kubectl get pods```
 
 - List all services
-```kubectl get services```
+```kubectl get s ervices```
 
 - List all deployments 
 ```kubectl get deployments```
@@ -354,32 +421,57 @@ kubeconfig: Configured
 
 ### Custom Resource Definitions (CRDs)
 - Extend Kubernetes capabilities by defining custom resources.
+- CRDs are defined using Kubernetes YAML manifests and consist of three main components:
 
-### Helm Charts
-- Package manager for Kubernetes applications.
-
-### Persistent Storage
-- Methods and best practices for managing persistent storage.
+1. **apiVersion**: Specifies the API version for the CRD definition.
+2. **kind**: Specifies the type of Kubernetes resource, which is `CustomResourceDefinition` for CRDs.
+3. **spec**: Defines the structure and validation schema of the custom resource.
 
 ### Network Policies
-- Define network traffic rules for Pods.
 
-### Monitoring and Logging
-- Tools and practices for monitoring and logging in Kubernetes.
+Network Policies in Kubernetes control traffic flow between pods and external endpoints, enhancing cluster security by defining communication rules.
+#### Overview
 
-### Security Best Practices
-- Strategies to enhance security in Kubernetes environments.
-
+- **Purpose**: Specify how pods within Kubernetes can communicate.
+- **Scope**: Applied at the namespace level.
+- **Default Behavior**: All traffic is denied unless explicitly allowed.
 ## Best Practices
 
-### Resource Management
-- Efficiently managing resources in a Kubernetes cluster.
-
 ### Namespace Strategies
-- Effective use of namespaces for organization and security.
+Namespace strategies in Kubernetes help organize and secure resources:
+
+#### Overview
+
+- **Purpose**: Divide Kubernetes clusters to isolate applications.
+- **Best Practices**: Use case-based or team-based namespaces.
+- **Benefits**: Enhance security, manage resources efficiently.
+
+#### Integration
+
+- **CI/CD**: Use namespaces to isolate deployments (e.g., `staging`, `production`).
+- **Automation**: Streamline resource allocation in workflows.
+
+Namespace strategies simplify management and enhance security in Kubernetes deployments.
 
 ### CI/CD Integration
-- Integrating Kubernetes with CI/CD pipelines.
+
+CI/CD integration automates the deployment of applications on Kubernetes, ensuring fast and reliable updates. Here's a simplified approach:
+
+#### Overview
+
+1. **Build**: Create Docker images or Helm charts from source.
+2. **Test**: Validate application functionality.
+3. **Deploy**: Use Helm or `kubectl` to deploy to Kubernetes.
+4. **Monitor**: Check application health post-deployment.
+
+#### Example Workflow
+
+- **Tools**: Use GitLab CI/CD, Jenkins, or others.
+- **Pipeline**: Build → Test → Deploy.
+- **Benefits**: Faster deployments, consistent updates, and automated testing.
+
+CI/CD with Kubernetes streamlines development and operations, improving efficiency and reliability in application deployments.
+
 
 ## Troubleshooting
 ### Common Issues and Solutions
@@ -430,14 +522,6 @@ kubeconfig: Configured
 - **Solution**:
   - Check PV and PVC status: ```kubectl get pv``` and ```kubectl get pvc```
   - Describe PV and PVC for details: ```kubectl describe pv <pv-name>``` and ```kubectl describe pvc <pvc-name>```
-
-
-
-### Debugging Techniques
-- Techniques and tools for debugging issues in Kubernetes.
-
-### Performance Tuning
-- Tips for optimizing Kubernetes performance.
 
 ## Conclusion
 - Kubernetes makes managing applications easier, improving deployment times, scalability, and reliability. It has a strong community and is widely used in modern cloud environments. Starting with basic concepts and gradually exploring more advanced features is a good way to learn and benefit from Kubernetes.
