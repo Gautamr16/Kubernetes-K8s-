@@ -291,6 +291,19 @@ commit: 5883c09216182566a63dff4c326a6fc9ed2982ff
 ```
 minikube start
 ```
+- Output:
+  ```gautamr@gautam:~$ minikube start
+😄  minikube v1.33.1 on Ubuntu 24.04
+✨  Using the docker driver based on existing profile
+👍  Starting "minikube" primary control-plane node in "minikube" cluster
+🚜  Pulling base image v0.0.44 ...
+🏃  Updating the running docker "minikube" container ...
+🐳  Preparing Kubernetes v1.30.0 on Docker 26.1.1 ...
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+```
 - Check cluster status:
 ```
 minikube status
