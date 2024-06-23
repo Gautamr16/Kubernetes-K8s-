@@ -307,6 +307,16 @@ minikube start
 ```
 minikube status
 ```
+- Output:
+```
+gautamr@gautam:~$ minikube status
+minikube
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+```
 
 
 ### Basic Commands
