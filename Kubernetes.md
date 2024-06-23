@@ -290,7 +290,7 @@ commit: 5883c09216182566a63dff4c326a6fc9ed2982ff
 minikube start
 ```
 - Output:
-  ```
+```
   gautamr@gautam:~$ minikube start
 😄  minikube v1.33.1 on Ubuntu 24.04
 ✨  Using the docker driver based on existing profile
