@@ -162,11 +162,13 @@ Install a Docker container and then install Kubernetes with two nodes:
 
 
 Before you begin, ensure you have the following:
-- Multiple Linux-based servers (VMs or physical machines)
-- Ubuntu 20.04 or compatible Linux distribution
-- 2 CPUs or more
-- 2GB or more of RAM per node
-- Full network connectivity between all nodes
+- Hostname: gautam
+- Operating System: Ubuntu 24.04 LTS
+- Kernel: Linux 6.8.0-38-generic
+- Architecture: x86-64
+Hardware Requirements:
+- CPUs: At least 2
+- RAM: At least 2GB
 
 ## Step-by-Step Installation
 
