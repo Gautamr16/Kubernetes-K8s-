@@ -538,7 +538,8 @@ CI/CD with Kubernetes streamlines development and operations, improving efficien
 - Kubernetes makes managing applications easier, improving deployment times, scalability, and reliability. It has a strong community and is widely used in modern cloud environments. Starting with basic concepts and gradually exploring more advanced features is a good way to learn and benefit from Kubernetes.
 
 ## References
-<https://kubernetes.io/>
 <https://docs.docker.com/get-docker/>
+<https://kubernetes.io/>
+
     
 ## Thank You!
