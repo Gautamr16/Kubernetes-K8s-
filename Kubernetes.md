@@ -166,6 +166,7 @@ Before you begin, ensure you have the following:
 - Operating System: Ubuntu 24.04 LTS
 - Kernel: Linux 6.8.0-38-generic
 - Architecture: x86-64
+  
 Hardware Requirements:
 - CPUs: At least 2
 - RAM: At least 2GB
