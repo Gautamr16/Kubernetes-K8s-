@@ -176,17 +176,23 @@ Before you begin, ensure you have the following:
     sudo apt-get upgrade 
 ```
 ### Step 2. Kubernetes uses Docker as its container runtime. Install Docker on all nodes:
-- After update system Now you can Install Docker using the following command:
+- Set up Docker's `apt` repository.
 ``` 
-    sudo apt install docker.io
+     sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 ```
-- You’ll then get a prompt asking you to choose between y/n - choose y
+-  Add the repository to Apt sources:
 ```
-    Do you want to continue? [Y/n] y
+    echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
-- Install all the dependency package using this command:
+- To install the latest version of Docker Engine:
 ```
-    sudo snap install docker
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 - check the version of Docker :
 ```
