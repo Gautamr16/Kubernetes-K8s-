@@ -13,11 +13,8 @@ In this documentation we covers basics of Kubernetes **(K8s)** like key features
 5. [Getting Started](#getting-started)
    - [Installation](#installation)
    - [Basic Commands](#basic-commands)
-6. [Advanced Topics](#advanced-topics)
-7. [Best Practices](#best-practices)
-8. [Troubleshooting](#troubleshooting)
-9. [Conclusion](#conclusion)
-10. [References](#references)
+6. [Conclusion](#conclusion)
+7. [References](#references)
 
 ## Introduction
 
@@ -26,8 +23,6 @@ Kubernetes (K8s) is an open-source tool that helps manage containerized applicat
 ### Why is Kubernetes Called K8s?
 
 Kubernetes is called "K8s" because there are eight letters between the "K" and the "s" in the word "Kubernetes." It’s a way to shorten the word and make it easier to write.
-
-
 
 ### *History and Development*
 #### Origins:
@@ -61,14 +56,6 @@ Kubernetes is called "K8s" because there are eight letters between the "K" and t
 ### Automated Rollouts and Rollbacks
 - Manages deployment of new versions of applications.
 - Can roll back to a previous version if issues are detected.
-
-### Secret and Configuration Management
-- Securely stores and manages sensitive information (passwords, tokens, SSH keys).
-- Allows updating secrets and configurations without rebuilding container images.
-
-### Storage Orchestration
-- Automatically mounts the storage system of your choice.
-- Supports local storage, public cloud providers, and network storage systems (NFS, iSCSI, Gluster, Ceph, Cinder, Flocker).
 
 ## Core Concepts
 
@@ -426,113 +413,6 @@ minikube delete
 - Delete a deployment
 ```kubectl delete deployment <deployment-name>```
 
-
-
-## Advanced Topics
-
-### Custom Resource Definitions (CRDs)
-- Extend Kubernetes capabilities by defining custom resources.
-- CRDs are defined using Kubernetes YAML manifests and consist of three main components:
-
-1. **apiVersion**: Specifies the API version for the CRD definition.
-2. **kind**: Specifies the type of Kubernetes resource, which is `CustomResourceDefinition` for CRDs.
-3. **spec**: Defines the structure and validation schema of the custom resource.
-
-### Network Policies
-
-Network Policies in Kubernetes control traffic flow between pods and external endpoints, enhancing cluster security by defining communication rules.
-#### Overview
-
-- **Purpose**: Specify how pods within Kubernetes can communicate.
-- **Scope**: Applied at the namespace level.
-- **Default Behavior**: All traffic is denied unless explicitly allowed.
-## Best Practices
-
-### Namespace Strategies
-Namespace strategies in Kubernetes help organize and secure resources:
-
-#### Overview
-
-- **Purpose**: Divide Kubernetes clusters to isolate applications.
-- **Best Practices**: Use case-based or team-based namespaces.
-- **Benefits**: Enhance security, manage resources efficiently.
-
-#### Integration
-
-- **CI/CD**: Use namespaces to isolate deployments (e.g., `staging`, `production`).
-- **Automation**: Streamline resource allocation in workflows.
-
-Namespace strategies simplify management and enhance security in Kubernetes deployments.
-
-### CI/CD Integration
-
-CI/CD integration automates the deployment of applications on Kubernetes, ensuring fast and reliable updates. Here's a simplified approach:
-
-#### Overview
-
-1. **Build**: Create Docker images or Helm charts from source.
-2. **Test**: Validate application functionality.
-3. **Deploy**: Use Helm or `kubectl` to deploy to Kubernetes.
-4. **Monitor**: Check application health post-deployment.
-
-#### Example Workflow
-
-- **Tools**: Use GitLab CI/CD, Jenkins, or others.
-- **Pipeline**: Build → Test → Deploy.
-- **Benefits**: Faster deployments, consistent updates, and automated testing.
-
-CI/CD with Kubernetes streamlines development and operations, improving efficiency and reliability in application deployments.
-
-
-## Troubleshooting
-### Common Issues and Solutions
-
-#### 1. Pod Not Starting
-- **Issue**: A pod is not starting or is stuck in `Pending` state.
-- **Possible Causes**:
-  - Insufficient resources.
-  - Incorrect configuration.
-- **Solution**:
-  - Check pod status: ```kubectl get pods```
-  - Describe pod for more details: ```kubectl describe pod <pod-name>```
-  - Check resource availability: ```kubectl describe nodes```
-
-#### 2. CrashLoopBackOff Error
-- **Issue**: A pod is repeatedly crashing.
-- **Possible Causes**:
-  - Application error.
-  - Resource limits too low.
-- **Solution**:
-  - View logs: ```kubectl logs <pod-name>```
-  - Check container details: ```kubectl describe pod <pod-name>```
-
-#### 3. Service Not Accessible
-- **Issue**: A service is not accessible from within or outside the cluster.
-- **Possible Causes**:
-  - Incorrect service configuration.
-  - Network issues.
-- **Solution**:
-  - Get service details: ```kubectl get services```
-  - Describe service: ```kubectl describe service <service-name>```
-  - Check endpoints: ```kubectl get endpoints```
-
-#### 4. Node Not Ready
-- **Issue**: A node is in `NotReady` state.
-- **Possible Causes**:
-  - Network issues.
-  - Node resource exhaustion.
-- **Solution**:
-  - Get node status: ```kubectl get nodes```
-  - Describe node: ```kubectl describe node <node-name>```
-
-#### 5. Persistent Volume Not Bound
-- **Issue**: A persistent volume (PV) is not binding to a persistent volume claim (PVC).
-- **Possible Causes**:
-  - Mismatched storage class.
-  - Insufficient storage.
-- **Solution**:
-  - Check PV and PVC status: ```kubectl get pv``` and ```kubectl get pvc```
-  - Describe PV and PVC for details: ```kubectl describe pv <pv-name>``` and ```kubectl describe pvc <pvc-name>```
 
 ## Conclusion
 - Kubernetes makes managing applications easier, improving deployment times, scalability, and reliability. It has a strong community and is widely used in modern cloud environments. Starting with basic concepts and gradually exploring more advanced features is a good way to learn and benefit from Kubernetes.
