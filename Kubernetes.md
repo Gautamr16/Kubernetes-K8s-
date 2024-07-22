@@ -204,10 +204,10 @@ Hardware Requirements:
 ```
 ### step 3. Start and Enable Docker
 ``` 
-sudo systemctl enable docker
+sudo systemctl start docker
 ```
  ```
- sudo service docker start
+ sudo systemctl enable docker
  ```
 - Check the status of docker service :
 ```
