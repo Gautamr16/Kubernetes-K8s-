@@ -83,9 +83,6 @@ Kubernetes follows a client-server architecture. This setup includes a minimum o
 **Controller Manager:** 
 - Runs controller processes.
 
-**Cloud Controller Manager:** 
-- Manages cloud-specific controller logic.
-
 ### Networking in Kubernetes:
 Kubernetes networking addresses four primary concerns:
 
