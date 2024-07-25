@@ -458,6 +458,10 @@ Events:
 ```
 kubectl delete pod (podname)
 ```
+```
+gautamr@gautam:~$ kubectl delete pod testpod1
+pod "testpod1" deleted
+```
 - Stop Minikube:
 ```
 minikube stop
