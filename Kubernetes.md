@@ -37,8 +37,7 @@ Kubernetes is called "K8s" because there are eight letters between the "K" and t
 ## Key Features
 
 ### Automated Scheduling
-- Efficiently schedules containers based on resource requirements and constraints.
-- Ensures applications have the necessary resources to run optimally.
+- Automated scheduling in Kubernetes is the process by which the Kubernetes scheduler automatically assigns Pods (units of work) to Nodes (machines) in a cluster. This ensures efficient resource use and balanced workloads.
 
 ### Self-Healing Capabilities
 - Automatically restarts failed containers.
