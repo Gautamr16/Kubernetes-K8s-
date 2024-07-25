@@ -224,8 +224,8 @@ Jun 21 23:28:26 gautam systemd[1]: Started docker.service - Docker Application C
 ```
 ### Step 4. Install Kubernetes Components and configuration
 - **All in one single Node installation**
--- with all-in-one, all the master and worker node/components are installed on a single node. This is very useful for learning and testing. This type should not be used in production. Minikube is one such example.
-- Installing Dependencies
+- with all-in-one, all the master and worker node/components are installed on a single node. This is very useful for learning and testing. This type should not be used in production. Minikube is one such example.
+- **Installing Dependencies**
 - - kubectl: Command-line tool for Kubernetes.
 - - Minikube: Tool for running a local Kubernetes cluster.
 
@@ -342,33 +342,121 @@ gautamr@gautam:~$ kubectl get nodes
 NAME       STATUS   ROLES           AGE     VERSION
 minikube   Ready    control-plane   7m38s   v1.30.0
 ```
-### Step 7: Deploy an Application:
-- Create a deployment:
+### Step 7: Manifest file:
+#### Steps for write a Kubernetes Manifest Using Vim
+- **Step 1:** Open the Terminal
+- **Step 2:** Create or Open a Manifest File
+- - ` vim pod1.yaml ` or `vim pod1.yml`
+- **Step 3:** Enter Insert Mode
+- -  By default, `vim `opens in command mode. To start typing or editing the file, you need to switch to insert mode. Press `i` to enter insert mode.
+- **Step 4:** Write Your Manifest
 ```
-kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
+kind: Pod
+apiVersion: v1
+metadata:
+  name: testpod1
+spec:
+  containers:
+    - name: c00
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo Hello-gautam; sleep 5; done"]
 ```
-- Output:
-```
-gautamr@gautam:~$ kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
-deployment.apps/hello-node created
-```
-- Expose the deployment:
+- **Step 5:** Save and Exit
+- - Once you have finished writing the manifest, exit insert mode by pressing `Esc`.
+- - To save the file and exit vim, type: `:wq`
+
+**Apply a Manifest**
+- `kubectl apply -f <manifest-file>`
 ``` 
-kubectl expose deployment hello-node --type=LoadBalancer --port=8080
+gautamr@gautam:~$ kubectl apply -f pod2.yml 
+pod/testpod1 created
 ```
-- Output:
+**Get Resources**
+- `kubectl get pods`
+
 ```
-gautamr@gautam:~$ kubectl expose deployment hello-node --type=LoadBalancer --port=8080
-service/hello-node exposed
+gautamr@gautam:~$ kubectl get pods
+NAME       READY   STATUS    RESTARTS   AGE
+testpod1   1/1     Running   0          5m44
 ```
-- Get the URL to access the application:
+**Get Resources with Wide Output**
+- `kubectl get pods -o wide`
+
 ```
-minikube service hello-node --url
+gautamr@gautam:~$ kubectl get pods -o wide
+NAME       READY   STATUS    RESTARTS   AGE     IP            NODE       NOMINATED NODE   READINESS GATES
+testpod1   1/1     Running   0          7m26s   10.244.0.28   minikube   <none>           <none>
 ```
+**View Logs**
+- `kubectl logs -f  <pod-name>`
+
+**Describe a Pod:**
+- `kubectl describe pod <pod-name>`
+```
+gautamr@gautam:~$ kubectl describe pod testpod1
+Name:             testpod1
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Thu, 25 Jul 2024 13:48:40 +0530
+Labels:           <none>
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.28
+IPs:
+  IP:  10.244.0.28
+Containers:
+  c00:
+    Container ID:  docker://a1aed8ac2e119ca10f99861addf61c9f814e304b2b781aefc10c07052b98ba69
+    Image:         ubuntu
+    Image ID:      docker-pullable://ubuntu@sha256:2e863c44b718727c860746568e1d54afd13b2fa71b160f5cd9058fc436217b30
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /bin/bash
+      -c
+      while true; do echo Hello-gautam; sleep 5; done
+    State:          Running
+      Started:      Thu, 25 Jul 2024 13:48:43 +0530
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-bxqxr (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-bxqxr:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  12m   default-scheduler  Successfully assigned default/testpod1 to minikube
+  Normal  Pulling    12m   kubelet            Pulling image "ubuntu"
+  Normal  Pulled     12m   kubelet            Successfully pulled image "ubuntu" in 2.919s (2.919s including waiting). Image size: 78050118 bytes.
+  Normal  Created    12m   kubelet            Created container c00
+  Normal  Started    12m   kubelet            Started container c00
+
+```
+
 ### Step 8: Cleanup
-- Delete the deployment:
+- Delete the pod:
 ```
-kubectl delete deployment hello-node
+kubectl delete pod (podname)
 ```
 - Stop Minikube:
 ```
