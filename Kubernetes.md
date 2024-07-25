@@ -68,18 +68,6 @@ Kubernetes is called "K8s" because there are eight letters between the "K" and t
 - An abstraction to define a logical set of Pods and a policy to access them.
 - Allows decoupling of the service implementation from the client.
 
-### Deployments:
-- Provides declarative updates to applications.
-- Describes an application’s life cycle, such as which images to use for the app, the number of Pod replicas, and the update strategy.
-
-### ConfigMaps and Secrets:
-- **ConfigMaps:** Provides a way to inject configuration data into Pods.
-- **Secrets:** Designed to hold sensitive information, such as passwords and OAuth tokens.
-
-### Namespaces:
-- Provides a mechanism to isolate groups of resources within a single cluster.
-- Useful in environments with multiple teams or projects.
-
 ## Kubernetes Architecture and Working
 Kubernetes follows a client-server architecture. This setup includes a minimum of one master (control plane) node alongside several worker nodes, which serve as hosts for pods that contain the containers. The master node orchestrates the worker nodes, where the actual applications reside. </br>
 ![Kubernetes_architecture](https://github.com/Gautamr16/Kubernetes-K8s-/assets/173404083/fa33e633-eee8-4588-ad16-a9852d5ea98f)
