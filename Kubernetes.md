@@ -62,7 +62,7 @@ Kubernetes is called "K8s" because there are eight letters between the "K" and t
 - Encapsulates one or more containers, storage resources, a unique network IP, and options for how the containers should run.
 
 ### Services:
-- An abstraction to define a logical set of Pods and a policy to access them.
+- Services are a way to manage how Pods (containers) are accessed.
 - Allows decoupling of the service implementation from the client.
 
 ## Kubernetes Architecture and Working
