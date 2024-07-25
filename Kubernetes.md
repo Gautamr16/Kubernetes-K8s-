@@ -47,8 +47,7 @@ Kubernetes is called "K8s" because there are eight letters between the "K" and t
 ### Horizontal Scaling
 - Automatically or manually scales applications based on CPU utilization or other metrics.
 
-### Service Discovery and Load Balancing
-- Provides a single DNS name for a set of containers.
+### Load Balancing
 - Balances the load across multiple containers.
 
 ### Automated Rollouts and Rollbacks
