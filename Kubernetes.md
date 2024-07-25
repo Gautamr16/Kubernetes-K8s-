@@ -43,7 +43,6 @@ Kubernetes is called "K8s" because there are eight letters between the "K" and t
 - Automatically restarts failed containers.
 - Replaces and reschedules containers when nodes fail.
 - Kills containers that don't respond to health checks.
-- Keeps non-ready containers from being advertised to clients.
 
 ### Horizontal Scaling
 - Automatically or manually scales applications based on CPU utilization or other metrics.
