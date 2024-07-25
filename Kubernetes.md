@@ -89,16 +89,6 @@ Kubernetes follows a client-server architecture. This setup includes a minimum o
 **Cloud Controller Manager:** 
 - Manages cloud-specific controller logic.
 
-### **Key Components of Worker Nodes:**
-**Kubelet:** 
-- Ensures containers are running in a Pod.
-
-**Kube-Proxy:** 
-- Maintains network rules on nodes.
-
-**Container Runtime:** 
-- Software responsible for running containers (e.g., Docker, containerd).
-
 ### Networking in Kubernetes:
 Kubernetes networking addresses four primary concerns:
 
@@ -110,18 +100,19 @@ Kubernetes networking addresses four primary concerns:
 ## The Data Plane
 The data plane is responsible for running application workloads. It includes the following key components on each worker node:
 
-### Components of the Data Plane
+### Key Components of Worker Nodes
 - **Pods:** 
     - The smallest and simplest Kubernetes object. A pod represents a single instance of a running process in your cluster and can contain one or more containers.
 
-- **Kubelet:** 
-    - Ensures the containers described in PodSpecs are running and healthy.
+- **Kubelet:**
+    - Ensures containers are running in a Pod.
 
 - **Container Runtime:** 
     - Runs the containers inside pods.
+    - Software responsible for running containers (e.g., Docker, container d).
 
 - **Kube-proxy:** 
-    - Manages networking for pods, ensuring network traffic is correctly routed.
+    - Maintains network rules on nodes.
 
 ## Getting Started
 
@@ -134,8 +125,6 @@ Install a Docker container and then install Kubernetes with two nodes:
 - How to join a worker node to a Kubernetes cluster
 
 ### Prerequisites
-
-
 Before you begin, ensure you have the following:
 - Hostname: gautam
 - Operating System: Ubuntu 24.04 LTS
@@ -216,7 +205,6 @@ Jun 21 23:28:26 gautam systemd[1]: Started docker.service - Docker Application C
 - **Installing Dependencies**
 - - kubectl: Command-line tool for Kubernetes.
 - - Minikube: Tool for running a local Kubernetes cluster.
-
 
 **Install kubectl**
 - Download kubectl
@@ -440,7 +428,6 @@ Events:
   Normal  Started    12m   kubelet            Started container c00
 
 ```
-
 ### Step 8: Cleanup
 - Delete the pod:
 ```
@@ -465,14 +452,13 @@ gautamr@gautam:~$ minikube stop
 ```
 minikube delete
 ```
-
 ### Basic Commands
 
 - List all pods
 ```kubectl get pods```
 
 - List all services
-```kubectl get s ervices```
+```kubectl get services```
 
 - List all deployments 
 ```kubectl get deployments```
@@ -495,7 +481,6 @@ minikube delete
 - Delete a deployment
 ```kubectl delete deployment <deployment-name>```
 
-
 ## Conclusion
 - Kubernetes makes managing applications easier, improving deployment times, scalability, and reliability. It has a strong community and is widely used in modern cloud environments. Starting with basic concepts and gradually exploring more advanced features is a good way to learn and benefit from Kubernetes.
 
@@ -504,5 +489,4 @@ minikube delete
 <br>
 <https://kubernetes.io/>
 
-    
 ## Thank You!
