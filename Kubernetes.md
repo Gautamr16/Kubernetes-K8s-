@@ -222,7 +222,9 @@ Jun 21 23:28:26 gautam dockerd[102078]: time="2024-06-21T23:28:26.338149917+05:3
 Jun 21 23:28:26 gautam dockerd[102078]: time="2024-06-21T23:28:26.374636912+05:30" level=info msg="API listen on /run/docker.sock"
 Jun 21 23:28:26 gautam systemd[1]: Started docker.service - Docker Application Container Engine.
 ```
-### Step 4. Install Kubernetes Components
+### Step 4. Install Kubernetes Components and configuration
+- **All in one single Node installation**
+-- with all-in-one, all the master and worker node/components are installed on a single node. This is very useful for learning and testing. This type should not be used in production. Minikube is one such example.
 - Installing Dependencies
 - - kubectl: Command-line tool for Kubernetes.
 - - Minikube: Tool for running a local Kubernetes cluster.
