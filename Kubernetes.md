@@ -45,7 +45,7 @@ Kubernetes is called "K8s" because there are eight letters between the "K" and t
 - Kills containers that don't respond to health checks.
 
 ### Horizontal Scaling
-- Automatically or manually scales applications based on CPU utilization or other metrics.
+- Automatically or manually scales applications based on CPU utilization.
 
 ### Load Balancing
 - Balances the load across multiple containers.
