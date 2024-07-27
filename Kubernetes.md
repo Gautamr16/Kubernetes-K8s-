@@ -58,7 +58,6 @@ Kubernetes is called "K8s" because there are eight letters between the "K" and t
 
 ### Pods:
 - The smallest and simplest Kubernetes object.
-- Represents a single instance of a running process in your cluster.
 - Encapsulates one or more containers, storage resources, a unique network IP, and options for how the containers should run.
 
 ### Services:
