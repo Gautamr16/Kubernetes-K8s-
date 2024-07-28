@@ -62,7 +62,6 @@ Kubernetes is called "K8s" because there are eight letters between the "K" and t
 
 ### Services:
 - Services are a way to manage how Pods (containers) are accessed.
-- Allows decoupling of the service implementation from the client.
 
 ## Kubernetes Architecture and Working
 Kubernetes follows a client-server architecture. This setup includes a minimum of one master (control plane) node alongside several worker nodes, which serve as hosts for pods that contain the containers. The master node orchestrates the worker nodes, where the actual applications reside. </br>
