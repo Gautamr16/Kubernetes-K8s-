@@ -444,16 +444,13 @@ gautamr@gautam:~$ minikube stop
 ```
 minikube delete
 ```
-### Basic Commands
+### Basic Command
 
 - List all pods
 ```kubectl get pods```
 
 - List all services
 ```kubectl get services```
-
-- List all deployments 
-```kubectl get deployments```
 
 - Create resources from a YAML file
 ```kubectl create -f <file.yaml>```
@@ -469,9 +466,6 @@ minikube delete
 
 - Delete a service
 ```kubectl delete service <service-name>```
-
-- Delete a deployment
-```kubectl delete deployment <deployment-name>```
 
 ## Conclusion
 - Kubernetes makes managing applications easier, improving deployment times, scalability, and reliability. It has a strong community and is widely used in modern cloud environments. Starting with basic concepts and gradually exploring more advanced features is a good way to learn and benefit from Kubernetes.
