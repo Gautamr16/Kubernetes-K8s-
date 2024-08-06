@@ -228,9 +228,9 @@ Client Version: v1.30.2
 Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
 ```
 **Install Minikube**
-- Download Minikube:
 ```
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
 ```
 - Output:
 ```
@@ -238,11 +238,6 @@ gautamr@gautam:~$ curl -LO https://storage.googleapis.com/minikube/releases/late
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 91.1M  100 91.1M    0     0  4313k      0  0:00:21  0:00:21 --:--:-- 3837k
-```
-- Install Minikube:
-```
-chmod +x minikube-linux-amd64
-sudo mv minikube-linux-amd64 /usr/local/bin/minikube
 ```
 - Verify installation:
 ```
